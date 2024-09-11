@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<amoc version="1.7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.bom.gov.au/schema/v1.7/amoc.xsd">
+    <source>
+        <sender>Australian Government Bureau of Meteorology</sender>
+        <region>New South Wales</region>
+        <office>NSWRO</office>
+        <copyright>http://www.bom.gov.au/other/copyright.shtml</copyright>
+        <disclaimer>http://www.bom.gov.au/other/disclaimer.shtml</disclaimer>
+    </source>
+    <identifier>IDN11024</identifier>
+    <issue-time-utc>2024-09-10T19:15:00Z</issue-time-utc>
+    <issue-time-local tz="EST">2024-09-11T05:15:00+10:00</issue-time-local>
+    <sent-time>2024-09-10T19:15:26Z</sent-time>
+    <expiry-time>2024-09-11T19:15:00Z</expiry-time>
+    <validity-bgn-time-local tz="EST">2024-09-11T00:00:00+10:00</validity-bgn-time-local>
+    <validity-end-time-local tz="EST">2024-09-14T23:59:59+10:00</validity-end-time-local>
+    <next-routine-issue-time-utc>2024-09-11T06:30:00Z</next-routine-issue-time-utc>
+    <next-routine-issue-time-local tz="EST">2024-09-11T16:30:00+10:00</next-routine-issue-time-local>
+    <status>O</status>
+    <service>WSP</service>
+    <sub-service>FDS</sub-service>
+    <product-type>F</product-type>
+    <phase>NEW</phase>
+</amoc>
