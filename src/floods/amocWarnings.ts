@@ -1,6 +1,6 @@
 import { Client } from "basic-ftp";
 
-export async function getAllWarns() {
+export async function getAllWarns(): Promise<string[]> {
   const client = new Client();
   // client.ftp.verbose = true;
   try {
@@ -12,24 +12,30 @@ export async function getAllWarns() {
     await client.cd("/anon/gen/fwo/");
     const files = await client.list();
 
-   const warns = await getNames(files)
+    const warns = getNames(files);
 
     return warns;
   } catch (err) {
-    console.log(err);
+    console.error(err); // Note: .error() instead of .log()
+    // Note: Error was being captured here and not being thrown up downstream
+    throw err;
+  } finally {
+    // Note: Close the connection AFTER we have succeeeded or failed
+    client.close();
   }
-
-  client.close();
 }
 
-export const getNames = async (warnings:any)=>{
+// Note: Fat arrow function to regular function as is pattern
+// Note: Return shape of response for types
+// Note: Wasn't actually async method
+export function getNames(warnings: any): string[] {
   let warns: any = [];
-  
+
   for (var file in warnings) {
     if (warnings[file].name.endsWith(".amoc.xml")) {
-      warns.push(warnings[file].name)
+      warns.push(warnings[file].name);
     }
   }
 
-  return warns
+  return warns;
 }

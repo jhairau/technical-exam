@@ -1,20 +1,20 @@
 import fs from "fs";
 
+// NOTE: Just use Winston. No need to have your own logger
+
 const stdLogger = console.log;
-const stdError = console.error
-const logFile = fs.createWriteStream("logs.log", { flags: "a" });
+const stdError = console.error; // NOTE: Why?
+const logFile = fs.createWriteStream("logs.log", { flags: "a" }); // Note: destined to fail
 
-class Logger  {
+class Logger {
+  constructor() {}
 
-  constructor() {
-  }
-
-  log(...args:any[]) {
+  log(...args: any[]) {
     stdLogger(...args);
     logFile.write(JSON.stringify(args));
     logFile.write("\n");
   }
-  error(...args:any[]) {
+  error(...args: any[]) {
     stdError(...args);
     logFile.write(JSON.stringify(args));
     logFile.write("\n");
@@ -24,5 +24,6 @@ class Logger  {
 const logger = new Logger();
 
 if (process.env.NODE_ENV == "production") {
-  console.log = logger.log; console.error = logger.error;
+  console.log = logger.log;
+  console.error = logger.error;
 }
